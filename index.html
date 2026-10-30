@@ -1,0 +1,902 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d08">
+
+<title>RETRO PASSWORD MANAGER 1985</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 25px 15px;
+    background: #080d08;
+    color: #65ff65;
+    font-family: "Courier New", monospace;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    border: 2px solid #4aff4a;
+    padding: 25px 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px #173f17;
+}
+
+.header h1 {
+    font-size: clamp(22px, 5vw, 38px);
+    margin: 0 0 12px;
+    text-shadow: 0 0 10px #65ff65;
+}
+
+.header p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin: 8px 0;
+}
+
+.panel {
+    border: 1px solid #39b939;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #0b120b;
+}
+
+.panel h2 {
+    font-size: 17px;
+    margin-top: 0;
+    border-bottom: 1px dashed #4aff4a;
+    padding-bottom: 12px;
+}
+
+.system {
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.status {
+    color: #aaffaa;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin: 7px 0 15px;
+    background: #020702;
+    color: #73ff73;
+    border: 1px solid #3d963d;
+    font-family: inherit;
+    outline: none;
+}
+
+input:focus {
+    border-color: #83ff83;
+    box-shadow: 0 0 8px #286d28;
+}
+
+label {
+    font-size: 12px;
+}
+
+button {
+    padding: 12px 15px;
+    margin: 5px 3px;
+    background: #142514;
+    border: 1px solid #60ed60;
+    color: #72ff72;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #65ff65;
+    color: #061006;
+}
+
+.danger {
+    border-color: #ff5555;
+    color: #ff7777;
+    background: #260909;
+}
+
+.danger:hover {
+    background: #ff5555;
+    color: black;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.counter {
+    font-size: 14px;
+    color: #c0ffc0;
+    margin: 15px 0;
+}
+
+.record {
+    border: 1px solid #286e28;
+    padding: 15px;
+    margin: 12px 0;
+    background: #060b06;
+    overflow-wrap: anywhere;
+}
+
+.record strong {
+    color: #b1ffb1;
+}
+
+.record p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.password-value {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.empty {
+    text-align: center;
+    padding: 25px 5px;
+    color: #78b878;
+    border: 1px dashed #286e28;
+    font-size: 13px;
+}
+
+.warning {
+    color: #ffbd65;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.terminal {
+    border: 1px solid #348c34;
+    padding: 15px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #72ff72;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.9;
+    color: #609860;
+    padding: 15px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px dashed #348c34;
+    margin: 15px 0;
+}
+
+@media(max-width:600px) {
+    .panel {
+        padding: 14px;
+    }
+
+    button {
+        width: 100%;
+        margin: 4px 0;
+    }
+
+    .actions {
+        display: block;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+    <h1>★ RETRO PASSWORD MANAGER ★</h1>
+    <p>PERSONAL COMPUTER SYSTEM • EST. 1985</p>
+    <p>SECURE TERMINAL VERSION 1.0</p>
+</header>
+
+<section class="panel system">
+
+<h2>┌─ SISTEMA ──────────────────┐</h2>
+
+USUARIO: OPERADOR<br>
+TERMINAL: RPM-1985<br>
+ESTADO: <span class="status">LISTO</span><br>
+
+--------------------------------<br>
+
+BIENVENIDO A TU ARCHIVO DIGITAL_
+
+</section>
+
+<!-- NUEVA CONTRASEÑA -->
+
+<section class="panel">
+
+<h2>[ 01 ] NUEVA CONTRASEÑA</h2>
+
+<form id="passwordForm">
+
+<label>SITIO O SERVICIO</label>
+<input
+    type="text"
+    id="site"
+    placeholder="Ej: Google, Facebook..."
+    required
+>
+
+<label>USUARIO O CORREO</label>
+<input
+    type="text"
+    id="username"
+    placeholder="Ej: usuario@gmail.com"
+    required
+>
+
+<label>CONTRASEÑA</label>
+
+<input
+    type="password"
+    id="password"
+    placeholder="Escribí tu contraseña"
+    required
+>
+
+<label>
+    <input
+        type="checkbox"
+        id="showPassword"
+        style="width:auto;margin:0 5px 0 0"
+    >
+    MOSTRAR CONTRASEÑA
+</label>
+
+<div class="actions">
+
+<button type="button" onclick="generatePassword()">
+🎲 GENERAR CLAVE
+</button>
+
+<button type="submit">
++ GUARDAR REGISTRO
+</button>
+
+</div>
+
+</form>
+
+</section>
+
+<!-- ARCHIVO -->
+
+<section class="panel">
+
+<h2>[ 02 ] ARCHIVO DE CONTRASEÑAS</h2>
+
+<input
+    type="search"
+    id="search"
+    placeholder="BUSCAR REGISTRO..."
+>
+
+<div class="counter">
+    <span id="total">0</span> REGISTROS
+</div>
+
+<div id="records">
+
+<div class="empty">
+NO HAY REGISTROS GUARDADOS.
+</div>
+
+</div>
+
+</section>
+
+<!-- RESPALDOS -->
+
+<section class="panel">
+
+<h2>[ 03 ] RESPALDOS</h2>
+
+<div class="actions">
+
+<button onclick="exportBackup()">
+💾 EXPORTAR RESPALDO
+</button>
+
+<button onclick="document.getElementById('importFile').click()">
+📂 IMPORTAR RESPALDO
+</button>
+
+<input
+    type="file"
+    id="importFile"
+    accept=".json,application/json"
+    style="display:none"
+    onchange="importBackup(event)"
+>
+
+</div>
+
+<hr>
+
+<p class="warning">
+ADVERTENCIA: Los archivos de respaldo contienen las
+contraseñas sin cifrar. Protegé el archivo y no lo compartás.
+</p>
+
+</section>
+
+<!-- TERMINAL -->
+
+<section class="panel">
+
+<h2>[ 04 ] TERMINAL DEL SISTEMA</h2>
+
+<div class="terminal" id="terminal">
+> SISTEMA INICIADO.<br>
+> ALMACENAMIENTO LOCAL ACTIVADO.<br>
+> ESPERANDO COMANDO...
+</div>
+
+</section>
+
+<footer>
+RETRO PASSWORD MANAGER © 1985–2026<br>
+INTERFAZ INSPIRADA EN LAS COMPUTADORAS CLÁSICAS<br>
+ALMACENAMIENTO LOCAL • VERSIÓN 1.0
+</footer>
+
+</div>
+
+<script>
+
+// ====================================
+// CONFIGURACIÓN DEL ALMACENAMIENTO
+// ====================================
+
+const STORAGE_KEY = "RPM1985_PASSWORD_DATABASE";
+
+let passwords = [];
+
+function loadPasswords() {
+
+    try {
+
+        const saved = localStorage.getItem(STORAGE_KEY);
+
+        passwords = saved ? JSON.parse(saved) : [];
+
+        if (!Array.isArray(passwords)) {
+            passwords = [];
+        }
+
+    } catch(error) {
+
+        passwords = [];
+
+        log("ERROR AL LEER EL ARCHIVO LOCAL.");
+
+    }
+
+    renderRecords();
+
+}
+
+// ====================================
+// GUARDADO PERMANENTE
+// ====================================
+
+function savePasswords() {
+
+    try {
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(passwords)
+        );
+
+        return true;
+
+    } catch(error) {
+
+        log("ERROR: NO SE PUDO GUARDAR EL ARCHIVO.");
+
+        alert("No se pudo guardar. Revisá el espacio disponible del navegador.");
+
+        return false;
+
+    }
+
+}
+
+// ====================================
+// TERMINAL
+// ====================================
+
+function log(message) {
+
+    const terminal = document.getElementById("terminal");
+
+    const line = document.createElement("div");
+
+    line.textContent = "> " + message;
+
+    terminal.appendChild(line);
+
+    terminal.scrollTop = terminal.scrollHeight;
+
+}
+
+// ====================================
+// MOSTRAR / OCULTAR
+// ====================================
+
+document.getElementById("showPassword")
+.addEventListener("change", function() {
+
+    document.getElementById("password").type =
+        this.checked ? "text" : "password";
+
+});
+
+// ====================================
+// GENERADOR DE CONTRASEÑAS
+// ====================================
+
+function generatePassword() {
+
+    const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*_-+";
+
+    const length = 18;
+
+    const values = new Uint32Array(length);
+
+    crypto.getRandomValues(values);
+
+    let result = "";
+
+    for(let i = 0; i < length; i++) {
+
+        result += chars[values[i] % chars.length];
+
+    }
+
+    document.getElementById("password").value = result;
+
+    log("NUEVA CONTRASEÑA GENERADA.");
+
+}
+
+// ====================================
+// AGREGAR REGISTRO
+// ====================================
+
+document.getElementById("passwordForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const site = document.getElementById("site").value.trim();
+
+    const username = document.getElementById("username").value.trim();
+
+    const password = document.getElementById("password").value;
+
+    if(!site || !username || !password) {
+
+        alert("COMPLETÁ TODOS LOS CAMPOS.");
+
+        return;
+
+    }
+
+    const record = {
+
+        id: crypto.randomUUID(),
+
+        site: site,
+
+        username: username,
+
+        password: password,
+
+        date: new Date().toLocaleString()
+
+    };
+
+    passwords.push(record);
+
+    if(!savePasswords()) {
+
+        passwords.pop();
+
+        return;
+
+    }
+
+    this.reset();
+
+    document.getElementById("password").type = "password";
+
+    document.getElementById("search").value = "";
+
+    renderRecords();
+
+    log("REGISTRO GUARDADO CORRECTAMENTE.");
+
+});
+
+// ====================================
+// MOSTRAR ARCHIVO
+// ====================================
+
+function renderRecords() {
+
+    const container = document.getElementById("records");
+
+    const search = document.getElementById("search")
+        .value.toLowerCase();
+
+    container.replaceChildren();
+
+    document.getElementById("total").textContent =
+        passwords.length;
+
+    const filtered = passwords.filter(item =>
+
+        item.site.toLowerCase().includes(search) ||
+
+        item.username.toLowerCase().includes(search)
+
+    );
+
+    if(filtered.length === 0) {
+
+        const empty = document.createElement("div");
+
+        empty.className = "empty";
+
+        empty.textContent = passwords.length === 0
+            ? "NO HAY REGISTROS GUARDADOS."
+            : "NO SE ENCONTRARON RESULTADOS.";
+
+        container.appendChild(empty);
+
+        return;
+
+    }
+
+    filtered.forEach(item => {
+
+        const card = document.createElement("div");
+
+        card.className = "record";
+
+        const title = document.createElement("strong");
+
+        title.textContent = "[ " + item.site + " ]";
+
+        const user = document.createElement("p");
+
+        user.textContent = "USUARIO: " + item.username;
+
+        const pass = document.createElement("p");
+
+        pass.append("CONTRASEÑA: ");
+
+        const value = document.createElement("span");
+
+        value.className = "password-value";
+
+        value.textContent = "••••••••••••";
+
+        value.dataset.password = item.password;
+
+        value.dataset.visible = "false";
+
+        pass.appendChild(value);
+
+        const date = document.createElement("p");
+
+        date.textContent = "GUARDADO: " + item.date;
+
+        const actions = document.createElement("div");
+
+        actions.className = "actions";
+
+        const show = document.createElement("button");
+
+        show.textContent = "👁 MOSTRAR";
+
+        show.addEventListener("click", function() {
+
+            const visible = value.dataset.visible === "true";
+
+            value.textContent = visible
+                ? "••••••••••••"
+                : value.dataset.password;
+
+            value.dataset.visible = visible ? "false" : "true";
+
+            show.textContent = visible
+                ? "👁 MOSTRAR"
+                : "🙈 OCULTAR";
+
+        });
+
+        const copy = document.createElement("button");
+
+        copy.textContent = "📋 COPIAR";
+
+        copy.addEventListener("click", async function() {
+
+            try {
+
+                await navigator.clipboard.writeText(item.password);
+
+                log("CONTRASEÑA COPIADA.");
+
+            } catch(error) {
+
+                alert("No se pudo copiar. Abrí la página en un contexto seguro (HTTPS o localhost).");
+
+            }
+
+        });
+
+        const remove = document.createElement("button");
+
+        remove.className = "danger";
+
+        remove.textContent = "✖ ELIMINAR";
+
+        remove.addEventListener("click", function() {
+
+            deleteRecord(item.id);
+
+        });
+
+        actions.append(show, copy, remove);
+
+        card.append(title, user, pass, date, actions);
+
+        container.appendChild(card);
+
+    });
+
+}
+
+// ====================================
+// ELIMINAR UN REGISTRO
+// ====================================
+
+function deleteRecord(id) {
+
+    const confirmation = confirm(
+        "¿ESTÁS SEGURO DE ELIMINAR ESTA CONTRASEÑA?\n\nESTA ACCIÓN NO SE PUEDE DESHACER."
+    );
+
+    if(!confirmation) return;
+
+    const previous = passwords;
+
+    passwords = passwords.filter(item => item.id !== id);
+
+    if(!savePasswords()) {
+
+        passwords = previous;
+
+        return;
+
+    }
+
+    renderRecords();
+
+    log("REGISTRO ELIMINADO POR EL OPERADOR.");
+
+}
+
+// ====================================
+// BUSCADOR
+// ====================================
+
+document.getElementById("search")
+.addEventListener("input", renderRecords);
+
+// ====================================
+// EXPORTAR RESPALDO
+// ====================================
+
+function exportBackup() {
+
+    const backup = {
+
+        system: "RETRO PASSWORD MANAGER",
+
+        version: "1.0",
+
+        date: new Date().toISOString(),
+
+        records: passwords
+
+    };
+
+    const blob = new Blob(
+
+        [JSON.stringify(backup, null, 2)],
+
+        {type: "application/json"}
+
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+
+    link.download = "RPM1985_BACKUP.json";
+
+    link.click();
+
+    URL.revokeObjectURL(url);
+
+    log("RESPALDO EXPORTADO.");
+
+}
+
+// ====================================
+// IMPORTAR RESPALDO
+// ====================================
+
+function importBackup(event) {
+
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        try {
+
+            const data = JSON.parse(e.target.result);
+
+            const imported = Array.isArray(data)
+                ? data
+                : data.records;
+
+            if(!Array.isArray(imported)) {
+
+                throw new Error("Formato incorrecto");
+
+            }
+
+            const valid = imported.every(item =>
+
+                item &&
+                typeof item.site === "string" &&
+                typeof item.username === "string" &&
+                typeof item.password === "string"
+
+            );
+
+            if(!valid) {
+
+                throw new Error("Registros inválidos");
+
+            }
+
+            if(!confirm(
+                "¿IMPORTAR " + imported.length +
+                " REGISTROS?\n\nLos registros con el mismo ID serán actualizados."
+            )) {
+
+                return;
+
+            }
+
+            const merged = new Map();
+
+            passwords.forEach(item => {
+
+                merged.set(item.id, item);
+
+            });
+
+            imported.forEach(item => {
+
+                const id = item.id || crypto.randomUUID();
+
+                merged.set(id, {
+
+                    id: id,
+
+                    site: item.site,
+
+                    username: item.username,
+
+                    password: item.password,
+
+                    date: item.date || new Date().toLocaleString()
+
+                });
+
+            });
+
+            const previous = passwords;
+
+            passwords = Array.from(merged.values());
+
+            if(!savePasswords()) {
+
+                passwords = previous;
+
+                return;
+
+            }
+
+            renderRecords();
+
+            log("RESPALDO IMPORTADO CORRECTAMENTE.");
+
+            alert("RESPALDO IMPORTADO.");
+
+        } catch(error) {
+
+            alert("ERROR: ARCHIVO DE RESPALDO INVÁLIDO.");
+
+        } finally {
+
+            event.target.value = "";
+
+        }
+
+    };
+
+    reader.readAsText(file);
+
+}
+
+// ====================================
+// INICIAR SISTEMA
+// ====================================
+
+loadPasswords();
+
+log("SISTEMA INICIADO.");
+
+log("BASE DE DATOS LOCAL CARGADA.");
+
+log("REGISTROS: " + passwords.length);
+
+log("ESPERANDO COMANDO...");
+
+</script>
+
+</body>
+</html>
